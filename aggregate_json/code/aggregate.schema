@@ -14,7 +14,9 @@
                     "sample_id": {"type": "number"},
                     "name": {"type": "string"},
                     "type": {"enum": ["normal", "tumor"]}
-                }
+                },
+                "required": ["sample_id", "name", "type"],
+                "additionalProperties": false
             }
         },
         "SNV": {
@@ -44,7 +46,8 @@
                     },
                     "amino_acid_change": {"type": "string"}
                 },
-                "required": ["SNV_id", "chr", "start", "reference", "variant"]
+                "required": ["SNV_id", "chr", "start", "reference", "variant"],
+                "additionalProperties": false
             }
         },
         "clusters": {
@@ -60,7 +63,8 @@
                         "items": {"type": "number"}
                     }
                 },
-                "required": ["cluster_id", "sample_name", "sample_id", "variants"]
+                "required": ["cluster_id", "sample_name", "sample_id", "variants"],
+                "additionalProperties": false
             }
         },
         "trees": {
@@ -85,7 +89,9 @@
                                         "properties": {
                                             "sample_id": {"type": "number"},
                                             "value": {"type": "number"}
-                                        }
+                                        },
+                                        "required": ["sample_id", "value"],
+                                        "additionalProperties": false
                                     }
                                 },
                                 "children": {
@@ -95,13 +101,16 @@
                                     }
                                 }
                             },
-                            "required": ["node_name", "prevalence", "children"]
+                            "required": ["node_name", "prevalence", "children"],
+                            "additionalProperties": false
                         }
                     }
                 },
-                "required": ["tree_id", "tree_name", "tree_score"]
+                "required": ["tree_id", "tree_name", "tree_score"],
+                "additionalProperties": false
             }
         }
     },
-    "required": ["version", "samples", "SNV", "clusters", "trees"]
+    "required": ["version", "samples", "SNV", "clusters", "trees"],
+    "additionalProperties": false
 }
